@@ -131,7 +131,7 @@ router.post('/users/me/avatar', auth, upload.single('avatar'), async (req, res) 
 })
 
 
-router.get('users/:id', async (req, res,) => {
+router.get('users/:id/avatar', async (req, res,) => {
     try {
         const user = await User.findById(req.params.id)
         console.log(user)

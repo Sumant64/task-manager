@@ -87,8 +87,29 @@ router.delete('/users/me', auth, async (req, res) => {
 
 
 // uploading image to local folder in the server 
+// const upload = multer({
+//     dest: 'avatars',
+//     limits: {
+//         fileSize: 1000000
+//     },
+//     fileFilter(req, file, cb) {
+//         if(!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
+//             return cb(new Error('Please upload an image'))
+//         }
+
+//         cb(undefined, true)
+//     }
+// })
+
+// router.post('/users/me/avatar', auth, upload.single('avatar'), async (req, res) => {
+//     res.send()
+// }, (error, req, res, next) => {
+//     res.status(400).send({ error: error.message })
+// })
+
+
+// upload image in the database as binary file
 const upload = multer({
-    dest: 'avatars',
     limits: {
         fileSize: 1000000
     },
@@ -102,6 +123,8 @@ const upload = multer({
 })
 
 router.post('/users/me/avatar', auth, upload.single('avatar'), async (req, res) => {
+    req.user.avatar = req.file.buffer 
+    await req.user.save()
     res.send()
 }, (error, req, res, next) => {
     res.status(400).send({ error: error.message })

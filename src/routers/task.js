@@ -32,5 +32,20 @@ router.get('/tasks', auth, async(req, res) => {
     }
 })
 
+router.get('/tasks/:id', auth, async (req, res) => {
+    try{
+        const _id = req.params.id
+        const task = await Task.findOne({_id, owner: req.user._id}).populate('owner')
+
+        if(!task) {
+            return res.status(404).send()
+        }
+
+        res.send(task)
+    }catch(err) {
+        res.status(500).send(err)
+    }
+})
+
 
 module.exports = router

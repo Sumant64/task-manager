@@ -18,15 +18,51 @@ router.post('/tasks', auth, async(req, res) => {
     }
 })
 
+
+// router.get('/tasks', auth, async(req, res) => {
+//     try{
+//         //first method
+//         // await req.user.populate('tasks')
+//         // res.send(req.user.tasks)
+
+//         // second method
+//         const task = await Task.find({owner: req.user._id}).populate('owner')
+//         res.send(task)
+//     } catch (err) {
+//         res.status(500).send(err)
+//     }
+// })
+
+
+// pagination (get tasks)
+// GET /tasks?complete=true
+// GET /tasks?limit=10&skip=20
+// GET /tasks?sortBy=createdAt:desc
 router.get('/tasks', auth, async(req, res) => {
     try{
-        //first method
-        // await req.user.populate('tasks')
-        // res.send(req.user.tasks)
+        const match = {}
+        const sort = {}  
+        
+        if(req.query.complete) {
+            match.complete = req.query.complete === 'true'
+        }
 
-        // second method
-        const task = await Task.find({owner: req.user._id}).populate('owner')
-        res.send(task)
+        if(req.query.sortBy) {
+            const parts = req.query.sortBy.split(':')
+            sort[parts[0]] = parts[1] === 'desc' ? -1 : 1
+        }
+        
+        await req.user.populate({
+            path: 'tasks',
+            match,
+            options: {
+                limit: parseInt(req.query.limit),
+                skip: parseInt(req.query.skip),
+                sort
+            }
+        })
+
+        res.send(req.user.tasks)
     } catch (err) {
         res.status(500).send(err)
     }

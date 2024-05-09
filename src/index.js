@@ -1,3 +1,5 @@
+const dotenv = require('dotenv');
+dotenv.config({path: './config.env'});
 const express = require('express')
 require('./db/conn');
 const userRouter = require('./routers/user')

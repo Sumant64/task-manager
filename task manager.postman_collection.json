@@ -1,0 +1,476 @@
+{
+	"info": {
+		"_postman_id": "65a4218f-fdea-4642-9057-ca8ed17b1180",
+		"name": "task manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20808344"
+	},
+	"item": [
+		{
+			"name": "Save User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"sumant\",\r\n    \"email\": \"sumantshah602@gmail.com\",\r\n    \"password\": \"1234567\",\r\n    \"age\": 29\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/users",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"ravi@gmail.com\",\r\n    \"password\": \"raviravi\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/users/login",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout all",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjEzYzJjYjZhMzZhYjRjY2E2YTI4MDMiLCJpYXQiOjE3MTI1NzIxMjV9.U5FRrAtVcwMJ_eOm1w2PdbB-UD0brNRLKO4KlkK1qnQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/users/logoutAll",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"users",
+						"logoutAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjEzYzJjYjZhMzZhYjRjY2E2YTI4MDMiLCJpYXQiOjE3MTI1NzMzNDF9._fdM2MbmGnwTyxiM-OUcEkRuC92fDQ2MoEYYuU3kQvw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/users/logout",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"users",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user profile",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjEzYzJjYjZhMzZhYjRjY2E2YTI4MDMiLCJpYXQiOjE3MTI1NzM3NTN9.djiAgjO3iqHuwLXDXhOkeVh5vV-81Koit2YyT5TG6TU",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/users/me",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post task",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjE0YjE0MGE3MzE0NDY4NGI5NDE3NWQiLCJpYXQiOjE3MTI2MzIxMjh9.x5U5SNz6FGCpmQnqI9jTYrSzk6Z7yHFxUrQb82X75uo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\" : \"morning up\",\r\n    \"complete\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/tasks",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get tasks",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjE0YjE0MGE3MzE0NDY4NGI5NDE3NWQiLCJpYXQiOjE3MTI2MzIxMjh9.x5U5SNz6FGCpmQnqI9jTYrSzk6Z7yHFxUrQb82X75uo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/tasks?limit=5&skip=0&complete=true&sortBy=createdAt:desc",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "skip",
+							"value": "0"
+						},
+						{
+							"key": "complete",
+							"value": "true"
+						},
+						{
+							"key": "sortBy",
+							"value": "createdAt:desc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get single task",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjEzYzJjYjZhMzZhYjRjY2E2YTI4MDMiLCJpYXQiOjE3MTI1NzM3NTN9.djiAgjO3iqHuwLXDXhOkeVh5vV-81Koit2YyT5TG6TU",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/tasks/6613d9aa2263c420f32a685f",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"tasks",
+						"6613d9aa2263c420f32a685f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patch task",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjEzYzJjYjZhMzZhYjRjY2E2YTI4MDMiLCJpYXQiOjE3MTI1NzM3NTN9.djiAgjO3iqHuwLXDXhOkeVh5vV-81Koit2YyT5TG6TU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"complete\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/tasks/6613d9aa2263c420f32a685f",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"tasks",
+						"6613d9aa2263c420f32a685f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete task",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjEzYzJjYjZhMzZhYjRjY2E2YTI4MDMiLCJpYXQiOjE3MTI1NzM3NTN9.djiAgjO3iqHuwLXDXhOkeVh5vV-81Koit2YyT5TG6TU",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/tasks/6613d9aa2263c420f32a685f",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"tasks",
+						"6613d9aa2263c420f32a685f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patch user",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjEzYzJjYjZhMzZhYjRjY2E2YTI4MDMiLCJpYXQiOjE3MTI1NzM3NTN9.djiAgjO3iqHuwLXDXhOkeVh5vV-81Koit2YyT5TG6TU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Ravi sheckhar\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/users/me",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete user",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjNjNTg2YjQ5MTQzYTlkOTU1YmZhYjUiLCJpYXQiOjE3MTUyNTIwNzd9.tL7H8jWOLkD8o8MjqCuQgH1gsItv4mqr25dJWmyuccY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/users/me",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload image",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjE0YjE0MGE3MzE0NDY4NGI5NDE3NWQiLCJpYXQiOjE3MTI2MzIxMjh9.x5U5SNz6FGCpmQnqI9jTYrSzk6Z7yHFxUrQb82X75uo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "avatar",
+							"type": "file",
+							"src": "/C:/Users/Sumant Shah/Downloads/Compressed/node-course-images/node-course-images/profile-pic.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5000/users/me/avatar",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"users",
+						"me",
+						"avatar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get image",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "image/jpeg",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/users/6614b140a73144684b94175d",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"users",
+						"6614b140a73144684b94175d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete image",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjE0YjE0MGE3MzE0NDY4NGI5NDE3NWQiLCJpYXQiOjE3MTI2MzIxMjh9.x5U5SNz6FGCpmQnqI9jTYrSzk6Z7yHFxUrQb82X75uo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/users/me/avatar",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"users",
+						"me",
+						"avatar"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
